@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * @Author: ElevenYang
- * @Description: 用户token鉴权
+ * @Description: 用户token鉴权（局部过滤器）
  * @Date 2023/4/8 10:57
  */
 @Slf4j
@@ -18,7 +18,7 @@ public class AuthTokenGatewayFilterFactory extends AbstractGatewayFilterFactory<
     public GatewayFilter apply(Object config) {
         return (exchange, chain) -> {
             log.info("=========================================");
-            log.info("AuthTokenGatewayFilterFactory");
+            log.info("======AuthTokenGatewayFilterFactory======");
             log.info("=========================================");
             String token = exchange.getRequest().getHeaders().getFirst("xxx-work-center-token");
             log.info("AuthTokenGatewayFilterFactory get user token: {}", token);

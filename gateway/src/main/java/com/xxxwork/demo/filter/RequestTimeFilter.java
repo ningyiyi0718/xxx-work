@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 
 /**
  * @Author: ElevenYang
- * @Description: 统计请求访问时间
+ * @Description: 统计请求访问时间（全局过滤器）
  * @Date 2023/4/8 10:46
  */
 @Slf4j

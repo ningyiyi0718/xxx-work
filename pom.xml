@@ -22,6 +22,7 @@
         <module>gateway</module>
         <module>xxx-service</module>
         <module>ooo-common</module>
+        <module>ooo-dao</module>
     </modules>
 
     <!-- 版本号管理 -->
@@ -33,6 +34,8 @@
         <slf4j.version>1.7.5</slf4j.version>
         <logback.version>1.2.3</logback.version>
         <lombok.version>1.16.16</lombok.version>
+        <mysql-connector-java.version>8.0.19</mysql-connector-java.version>
+        <mybatis-plus.version>3.5.0</mybatis-plus.version>
     </properties>
 
     <!-- 依赖统一管理 -->
@@ -92,6 +95,27 @@
                 <version>${lombok.version}</version>
             </dependency>
 
+            <!-- db相关 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-connector-java.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
 
 
         </dependencies>
