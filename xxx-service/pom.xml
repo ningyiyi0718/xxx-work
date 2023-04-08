@@ -12,6 +12,12 @@
 	<description>xxx-service</description>
 
 	<dependencies>
+		<dependency>
+			<groupId>com.xxxwork.demo</groupId>
+			<artifactId>ooo-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
 		<!-- springboot相关 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -38,6 +44,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<!-- nacos -->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
 		</dependency>
 
 	</dependencies>

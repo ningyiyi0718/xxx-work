@@ -21,6 +21,7 @@
     <modules>
         <module>gateway</module>
         <module>xxx-service</module>
+        <module>ooo-common</module>
     </modules>
 
     <!-- 版本号管理 -->
@@ -29,6 +30,9 @@
         <spring-cloud-alibaba.version>2.2.1.RELEASE</spring-cloud-alibaba.version>
         <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
         <spring-data-common.version>2.3.4.RELEASE</spring-data-common.version>
+        <slf4j.version>1.7.5</slf4j.version>
+        <logback.version>1.2.3</logback.version>
+        <lombok.version>1.16.16</lombok.version>
     </properties>
 
     <!-- 依赖统一管理 -->
@@ -64,6 +68,28 @@
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-commons</artifactId>
                 <version>${spring-data-common.version}</version>
+            </dependency>
+
+            <!-- 日志类包 -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
 
 

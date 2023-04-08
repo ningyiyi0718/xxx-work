@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration debug="false" scan="false">
+    <property name="SERVICE_NAME" value="gateway" />
+
+	<appender name="consoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="debugAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/${SERVICE_NAME}-log-debug.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/${SERVICE_NAME}-log-debug%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>50MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %X{invokeNo} %logger{40} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="errorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/${SERVICE_NAME}-log-error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/${SERVICE_NAME}-log-error%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>50MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %X{invokeNo} %logger{40} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="warnAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/${SERVICE_NAME}-log-warn.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/${SERVICE_NAME}-log-warn%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>50MB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %X{invokeNo} %logger{40} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="infoAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/${SERVICE_NAME}-log-info.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %thread %X{invokeNo} %logger{40} %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="debugAppender" level="DEBUG" addtivity="false">
+        <appender-ref ref="debugAppender"/>
+    </logger>
+    <logger name="errorAppender" level="ERROR" addtivity="false">
+        <appender-ref ref="errorAppender"/>
+    </logger>
+    <logger name="warnAppender" level="WARN" addtivity="false">
+        <appender-ref ref="warnAppender"/>
+    </logger>
+    <logger name="infoAppender" level="INFO" addtivity="false">
+        <appender-ref ref="infoAppender"/>
+    </logger>
+
+    <root level="info">
+        <appender-ref ref="debugAppender"/>
+        <appender-ref ref="errorAppender"/>
+        <appender-ref ref="warnAppender"/>
+        <appender-ref ref="infoAppender"/>
+        <appender-ref ref="consoleAppender"/>
+    </root>
+</configuration>

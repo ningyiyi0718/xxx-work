@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.56.10:8848
+        namespace: b51b69da-269c-4d96-941e-78173c6663da
+        group: service
+      config:
+        server-addr: 192.168.56.10:8848
+        namespace: b51b69da-269c-4d96-941e-78173c6663da
+        group: DEFAULT_GROUP # 默认分组
+    gateway:
+      routes:
+        - id: xxx_service_route
+          uri: lb://xxx-service
+          predicates:
+            - Path=/xxx-service/**
+          filters:
+            - RewritePath=/xxx-service/(?<segment>.*), /$\{segment} # 路径重写
+            - AuthToken
