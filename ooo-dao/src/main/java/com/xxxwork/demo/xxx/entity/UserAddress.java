@@ -1,27 +1,27 @@
-package com.xxxwork.demo.entity;
+package com.xxxwork.demo.xxx.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * @Author: ElevenYang
- * @Description:
- * @Date 2023/4/8 16:40
+ * @Description: 用户地址
+ * @Date 2023/4/8 17:35
  */
 @Data
 @NoArgsConstructor
-public class User {
+public class UserAddress {
 
     @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private String name;
+    private Integer uid;
 
-    private Integer age;
+    private String address;
 
-    private LocalDate ctime;
+    private LocalDateTime ctime;
 }

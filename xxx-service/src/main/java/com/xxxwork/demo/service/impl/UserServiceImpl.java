@@ -1,11 +1,11 @@
 package com.xxxwork.demo.service.impl;
 
 import com.xxxwork.demo.annotations.DataSourceSwitch;
-import com.xxxwork.demo.entity.User;
-import com.xxxwork.demo.entity.UserAddress;
+import com.xxxwork.demo.xxx.entity.User;
+import com.xxxwork.demo.xxx.entity.UserAddress;
 import com.xxxwork.demo.enums.DataSourceEnum;
-import com.xxxwork.demo.mapper.UserAddressMapper;
-import com.xxxwork.demo.mapper.UserMapper;
+import com.xxxwork.demo.xxx.mapper.UserAddressMapper;
+import com.xxxwork.demo.xxx.mapper.UserMapper;
 import com.xxxwork.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,7 @@
-package com.xxxwork.demo.mapper;
+package com.xxxwork.demo.xxx.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xxxwork.demo.entity.User;
-import com.xxxwork.demo.entity.UserAddress;
+import com.xxxwork.demo.xxx.entity.UserAddress;
 import org.springframework.stereotype.Component;
 
 /**

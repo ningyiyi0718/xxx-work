@@ -15,3 +15,4 @@
 * gateway：解决中文乱码\跨域访问问题\全局过滤器\局部过滤器(Mono)
 * mysql：连接池\HikariCp
 * mybatis-plus：主从多数据源
+* rocketmq：集群\事务消息

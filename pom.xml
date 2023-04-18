@@ -21,6 +21,7 @@
     <modules>
         <module>gateway</module>
         <module>xxx-service</module>
+        <module>yyy-service</module>
         <module>ooo-common</module>
         <module>ooo-dao</module>
     </modules>
@@ -36,6 +37,7 @@
         <lombok.version>1.16.16</lombok.version>
         <mysql-connector-java.version>8.0.19</mysql-connector-java.version>
         <mybatis-plus.version>3.5.0</mybatis-plus.version>
+        <rocketmq.version>2.1.1</rocketmq.version>
     </properties>
 
     <!-- 依赖统一管理 -->
@@ -115,6 +117,13 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- rocketmqdemo 4.7.1 -->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
             </dependency>
 
 

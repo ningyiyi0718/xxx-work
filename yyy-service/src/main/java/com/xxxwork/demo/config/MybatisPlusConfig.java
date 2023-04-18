@@ -31,7 +31,7 @@ import java.util.Map;
  * @Date 2023/4/8 16:14
  */
 @Configuration
-@MapperScan("com.xxxwork.demo.xxx.mapper")
+@MapperScan("com.xxxwork.demo.yyy.mapper")
 public class MybatisPlusConfig {
 
     /**
@@ -87,7 +87,7 @@ public class MybatisPlusConfig {
         // 指明数据源
         sessionFactory.setDataSource(multipleDataSource(dataSourcePri(), dataSourceSec()));
         // 指明实体扫描(多个package用逗号或者分号分隔)
-        sessionFactory.setTypeAliasesPackage("com.xxxwork.demo.xxx.entity");
+        sessionFactory.setTypeAliasesPackage("com.xxxwork.demo.yyy.entity");
         // 导入mybatis配置
         MybatisConfiguration configuration = new MybatisConfiguration();
         configuration.setJdbcTypeForNull(JdbcType.NULL);
