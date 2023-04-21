@@ -73,6 +73,12 @@
 			<artifactId>rocketmq-spring-boot-starter</artifactId>
 		</dependency>
 
+		<!-- open-feign -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

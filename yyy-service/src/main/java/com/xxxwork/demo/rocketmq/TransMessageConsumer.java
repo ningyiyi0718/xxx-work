@@ -47,7 +47,7 @@ public class TransMessageConsumer implements RocketMQListener<TransMessage>, Roc
             for (MessageExt ext : list) {
                 boolean result = this.handleMessage(ext);
                 if (!result) {
-                    return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+//                    return ConsumeConcurrentlyStatus.RECONSUME_LATER;
                 }
             }
             return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;

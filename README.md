@@ -16,3 +16,9 @@
 * mysql：连接池\HikariCp
 * mybatis-plus：主从多数据源
 * rocketmq：集群\事务消息
+* open-feign：导入依赖\注解支持\相关配置\接口实现
+* sentinel：gateway整合\持久化
+
+* sharding-jdbc：待定
+* skywalking：待定
+* xxl-job：待定

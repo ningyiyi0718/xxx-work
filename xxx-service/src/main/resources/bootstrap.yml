@@ -1,3 +1,6 @@
+server:
+  port: 8000
+
 spring:
   application:
     name: xxx-service
@@ -11,3 +14,7 @@ spring:
         server-addr: 192.168.56.10:8848
         namespace: b51b69da-269c-4d96-941e-78173c6663da
         group: DEFAULT_GROUP # 默认分组
+        file-extension: properties # 使用配置中心的文件
+        refresh-enabled: true
+  profiles:
+    active: dev # 配置中心id：xxx-service-dev.properties

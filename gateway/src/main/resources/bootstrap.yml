@@ -20,3 +20,7 @@ spring:
           filters:
             - RewritePath=/xxx-service/(?<segment>.*), /$\{segment} # 路径重写
             - AuthToken
+    sentinel: # 注意配置vm：-Dcsp.sentinel.app.type=1
+      transport:
+        dashboard: 192.168.56.10:8858
+      eager: true
