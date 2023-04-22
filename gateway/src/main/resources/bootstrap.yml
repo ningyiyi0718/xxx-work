@@ -24,3 +24,12 @@ spring:
       transport:
         dashboard: 192.168.56.10:8858
       eager: true
+#      datasource:
+#        flow-ds: #sentinel从nacos获取指定的流控规则 这个名字可以自定义，不重复就可以
+#          nacos:
+#            server-addr: 192.168.56.10:8848
+#            dataId: ${spring.application.name}-flow-rules
+#            groupId: DEFAULT_GROUP
+#            ruleType: flow # flow代表流程控制，degrade代表熔断规则
+#            username: nacos
+#            password: nacos

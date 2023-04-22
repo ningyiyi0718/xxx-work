@@ -38,6 +38,7 @@
         <mysql-connector-java.version>8.0.19</mysql-connector-java.version>
         <mybatis-plus.version>3.5.0</mybatis-plus.version>
         <rocketmq.version>2.1.1</rocketmq.version>
+        <sharding-jdbc.version>3.1.0</sharding-jdbc.version>
     </properties>
 
     <!-- 依赖统一管理 -->
@@ -126,6 +127,12 @@
                 <version>${rocketmq.version}</version>
             </dependency>
 
+            <!-- sharding-jdbc读写分离 -->
+            <dependency>
+                <groupId>io.shardingsphere</groupId>
+                <artifactId>sharding-jdbc-spring-boot-starter</artifactId>
+                <version>${sharding-jdbc.version}</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

@@ -1,6 +1,8 @@
 package com.xxxwork.demo.config;
 
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import com.xxxwork.demo.enums.DataSourceEnum;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -34,67 +36,77 @@ import java.util.Map;
 @MapperScan("com.xxxwork.demo.yyy.mapper")
 public class MybatisPlusConfig {
 
-    /**
-     * 第一个数据源
-     *
-     * @return
-     */
-    @Bean(name = "primary")
-    @ConfigurationProperties(prefix = "spring.datasource.primary")
-    public DataSource dataSourcePri() {
-        return DataSourceBuilder.create().build();
-    }
+//    /**
+//     * 第一个数据源
+//     *
+//     * @return
+//     */
+//    @Bean(name = "primary")
+//    @ConfigurationProperties(prefix = "spring.datasource.primary")
+//    public DataSource dataSourcePri() {
+//        return DataSourceBuilder.create().build();
+//    }
+//
+//    /**
+//     * 第二个数据源
+//     *
+//     * @return
+//     */
+//    @Bean(name = "second")
+//    @ConfigurationProperties(prefix = "spring.datasource.second")
+//    public DataSource dataSourceSec() {
+//        return DataSourceBuilder.create().build();
+//    }
+//
+//    /**
+//     * 动态数据源配置
+//     *
+//     * @return
+//     */
+//    @Bean
+//    @Primary
+//    public DataSource multipleDataSource(@Qualifier("primary") DataSource primary, @Qualifier("second") DataSource second) {
+//        DynamicDataSource dynamicDataSource = new DynamicDataSource();
+//        Map<Object, Object> dataSources = new HashMap<>();
+//        dataSources.put(DataSourceEnum.PRIMARY.getValue(), primary);
+//        dataSources.put(DataSourceEnum.SECOND.getValue(), second);
+//        dynamicDataSource.setTargetDataSources(dataSources);
+//        // 设置默认primary为主数据源
+//        dynamicDataSource.setDefaultTargetDataSource(primary);
+//        return dynamicDataSource;
+//    }
+//
+//    /**
+//     * sqlSessionFactory配置
+//     *
+//     * @return
+//     * @throws Exception
+//     */
+//    @Bean("sqlSessionFactory")
+//    public SqlSessionFactory sqlSessionFactory() throws Exception {
+//        // 导入mybatissqlsession配置
+//        MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
+//        // 指明数据源
+//        sessionFactory.setDataSource(multipleDataSource(dataSourcePri(), dataSourceSec()));
+//        // 指明实体扫描(多个package用逗号或者分号分隔)
+//        sessionFactory.setTypeAliasesPackage("com.xxxwork.demo.yyy.entity");
+//        // 导入mybatis配置
+//        MybatisConfiguration configuration = new MybatisConfiguration();
+//        configuration.setJdbcTypeForNull(JdbcType.NULL);
+//        configuration.setMapUnderscoreToCamelCase(true);
+//        configuration.setCacheEnabled(false);
+//        sessionFactory.setConfiguration(configuration);
+//        return sessionFactory.getObject();
+//    }
 
     /**
-     * 第二个数据源
-     *
-     * @return
-     */
-    @Bean(name = "second")
-    @ConfigurationProperties(prefix = "spring.datasource.second")
-    public DataSource dataSourceSec() {
-        return DataSourceBuilder.create().build();
-    }
-
-    /**
-     * 动态数据源配置
-     *
+     * mybatis-plus插件设置
      * @return
      */
     @Bean
-    @Primary
-    public DataSource multipleDataSource(@Qualifier("primary") DataSource primary, @Qualifier("second") DataSource second) {
-        DynamicDataSource dynamicDataSource = new DynamicDataSource();
-        Map<Object, Object> dataSources = new HashMap<>();
-        dataSources.put(DataSourceEnum.PRIMARY.getValue(), primary);
-        dataSources.put(DataSourceEnum.SECOND.getValue(), second);
-        dynamicDataSource.setTargetDataSources(dataSources);
-        // 设置默认primary为主数据源
-        dynamicDataSource.setDefaultTargetDataSource(primary);
-        return dynamicDataSource;
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+        return interceptor;
     }
-
-    /**
-     * sqlSessionFactory配置
-     *
-     * @return
-     * @throws Exception
-     */
-    @Bean("sqlSessionFactory")
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
-        // 导入mybatissqlsession配置
-        MybatisSqlSessionFactoryBean sessionFactory = new MybatisSqlSessionFactoryBean();
-        // 指明数据源
-        sessionFactory.setDataSource(multipleDataSource(dataSourcePri(), dataSourceSec()));
-        // 指明实体扫描(多个package用逗号或者分号分隔)
-        sessionFactory.setTypeAliasesPackage("com.xxxwork.demo.yyy.entity");
-        // 导入mybatis配置
-        MybatisConfiguration configuration = new MybatisConfiguration();
-        configuration.setJdbcTypeForNull(JdbcType.NULL);
-        configuration.setMapUnderscoreToCamelCase(true);
-        configuration.setCacheEnabled(false);
-        sessionFactory.setConfiguration(configuration);
-        return sessionFactory.getObject();
-    }
-
 }

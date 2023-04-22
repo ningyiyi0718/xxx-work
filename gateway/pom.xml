@@ -13,6 +13,10 @@
 	<name>gateway</name>
 	<description>服务一</description>
 
+	<properties>
+		<sentinel.version>1.7.1</sentinel.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.xxxwork.demo</groupId>
@@ -58,6 +62,18 @@
 			<groupId>com.alibaba.cloud</groupId>
 			<artifactId>spring-cloud-alibaba-sentinel-gateway</artifactId>
 		</dependency>
+
+		<!--&lt;!&ndash; sentinel 底层通过actuator来进行监控&ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>org.springframework.boot</groupId>-->
+			<!--<artifactId>spring-boot-starter-actuator</artifactId>-->
+		<!--</dependency>-->
+		<!--&lt;!&ndash; 使用nacos作为sentinel持久化数据源 &ndash;&gt;-->
+		<!--<dependency>-->
+			<!--<groupId>com.alibaba.csp</groupId>-->
+			<!--<artifactId>sentinel-datasource-nacos</artifactId>-->
+			<!--<version>${sentinel.version}</version>-->
+		<!--</dependency>-->
 
 	</dependencies>
 
